@@ -13,9 +13,17 @@ def calculate(x, y, operation):
         raise ValueError("Input the correct operation")
 
 
+def get_number(prompt):
+    while True:
+        try:
+            return float(input(prompt))
+        except ValueError:
+            print("Invalid input. Please enter a number.")
+
+
 def main():
-    x = float(input("Enter X: "))
-    y = float(input("Enter Y: "))
+    x = get_number("Enter X: ")
+    y = get_number("Enter Y: ")
     operation = input("Enter operation (+, -, *, /): ")
 
     try:

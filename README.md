@@ -17,12 +17,9 @@ python calculator.py
 ```
 
 Enter two numbers and an operation (`+`, `-`, `*`, or `/`) when prompted.
+The calculator accepts integer and decimal numbers. If an entered value is not
+a valid number, it displays an error message and asks for that value again.
 Division by zero and unsupported operations display an error message.
-
-## Known limitation
-
-Entering text that cannot be converted to a number may produce a Python
-traceback.
 
 ## Run the tests
 

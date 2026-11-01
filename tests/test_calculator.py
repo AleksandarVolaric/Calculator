@@ -1,6 +1,6 @@
 import pytest
 
-from calculator import calculate
+from calculator import calculate, get_number
 
 
 def test_addition():
@@ -27,3 +27,11 @@ def test_division_by_zero():
 def test_invalid_operation():
     with pytest.raises(ValueError):
         calculate(10, 5, "%")
+
+
+def test_get_number_invalid_input(monkeypatch, capsys):
+    inputs = iter(["cat", "5.5"])
+    monkeypatch.setattr("builtins.input", lambda prompt: next(inputs))
+
+    assert get_number("Enter X: ") == 5.5
+    assert "Invalid input" in capsys.readouterr().out
